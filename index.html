@@ -223,11 +223,10 @@ const engine = new Engine(GODOT_CONFIG);
 		}, displayFailureNotice);
 	}
 }());
-				<script>
-			(function initVK() {
-				window.parent.postMessage({ handler: 'VKWebAppInit', params: {} }, '*');
-				setTimeout(initVK, 500);
-			})();
+						<script src="vk-bridge.js"></script>
+		<script>
+			vkBridge.send('VKWebAppInit');
 		</script>
+
 	</body>
 </html>
