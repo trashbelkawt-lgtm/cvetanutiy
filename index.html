@@ -223,9 +223,13 @@ const engine = new Engine(GODOT_CONFIG);
 		}, displayFailureNotice);
 	}
 }());
-		</script>
+		<script src="https://cdn.jsdelivr.net/npm/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 		<script>
-			window.parent.postMessage({ handler: 'VKWebAppInit', params: {} }, '*');
-		</script>
+			window.addEventListener('load', function () {
+				if (window.vkBridge) {
+					vkBridge.send('VKWebAppInit');
+				}
+				window.parent.postMessage({ handler: 'VKWebAppInit', params: {} }, '*');
+			});
 	</body>
 </html>
